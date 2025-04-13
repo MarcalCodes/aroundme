@@ -1,11 +1,11 @@
-import { insertUser, selectAllUsers } from "../models/user.js"
+import * as Users from "../models/users.js"
 
 const getUsers = async () => {
-    return selectAllUsers()
+    return Users.all()
 }
 
 const createUser = async (data, response) => {
-    await insertUser(data.email, data.name)
+    await Users.insert(data.email, data.name)
     response.status(201).end();
 }
 
