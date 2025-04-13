@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
+    "genPrismaClient": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +20,9 @@
     "url": "https://github.com/MarcalCodes/aroundme/issues"
   },
   "homepage": "https://github.com/MarcalCodes/aroundme#readme",
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
   "dependencies": {
     "@prisma/client": "6.6.0",
     "express": "5.1.0"

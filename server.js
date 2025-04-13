@@ -1,10 +1,10 @@
-const express = require('express')
-const userRoutes = require('./routes/userRoutes');
+import express from 'express'
+import userRoutes from './src/routes/userRoutes.js'
 
 const app = express()
 const port = 3000
 
-
+app.use(express.json());
 app.use('/users', userRoutes);
 
 app.get('/', (request, response) => {
