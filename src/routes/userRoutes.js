@@ -8,7 +8,7 @@ const router = express.Router();
  */
 router.get('/', async (req, res) => {
     const users = await userController.getUsers()
-    response.json(users)
+    res.json(users)
 })
 
 /**
