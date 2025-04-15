@@ -7,7 +7,7 @@ const router = express.Router();
  *
  * A user subscribe to an Area
  */
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     return // TODO Ingrid
 })
 
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
  *
  * A user remove its subscription to an Area - "hard delete"
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
     return // TODO Ingrid
 })
 

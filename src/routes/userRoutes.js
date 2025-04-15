@@ -15,26 +15,21 @@ router.get('/', async (req, res) => {
  * GET /users/:id
  */
 router.get('/:id', async (req, res) => {
-    const user = await userController.getUser(req.params.id)
-    if (user) {
-        res.json(user)
-    } else {
-        res.status(404).end()
-    }
+    await userController.getUser(req.params.id, res)
 })
 
 /**
  * POST /users
  */
-router.post('/', (req, res) => {
-    userController.createUser(req.body, res)
+router.post('/', async (req, res) => {
+    await userController.createUser(req.body, res)
 })
 
 /**
  * Update /users/:id
  */
-router.put('/:id', (req, res) => {
-    userController.updateUser(req.params.id, req.body, res)
+router.put('/:id', async (req, res) => {
+    await userController.updateUser(req.params.id, req.body, res)
 })
 
 /**
@@ -42,8 +37,8 @@ router.put('/:id', (req, res) => {
  *
  * "hard delete"
  */
-router.delete('/:id', (req, res) => {
-    userController.deleteUser(req.params.id, res)
+router.delete('/:id', async (req, res) => {
+    await userController.deleteUser(req.params.id, res)
 })
 
 /**
@@ -51,7 +46,7 @@ router.delete('/:id', (req, res) => {
  *
  * Get all area the user is subscribed to
  */
-router.get('/:id/areas', (req, res) => {
+router.get('/:id/areas', async (req, res) => {
     return // TODO Ingrid
 })
 
@@ -60,7 +55,7 @@ router.get('/:id/areas', (req, res) => {
  *
  * Get all events created by the user
  */
-router.get('/:id/events', (req, res) => {
+router.get('/:id/events', async (req, res) => {
     return // TODO Ingrid
 })
 

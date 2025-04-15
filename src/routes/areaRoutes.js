@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
 /**
  * POST /area
  */
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     return // TODO Ingrid
 })
 
@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
  *
  * Get all the users subscribed to this area
  */
-router.get('/:id/area', (req, res) => {
+router.get('/:id/area', async (req, res) => {
     return // TODO Ingrid
 })
 
@@ -38,7 +38,7 @@ router.get('/:id/area', (req, res) => {
  *
  * Get all the events happening to this area
  */
-router.get('/:id/area', (req, res) => {
+router.get('/:id/area', async (req, res) => {
     return // TODO Ingrid
 })
 
