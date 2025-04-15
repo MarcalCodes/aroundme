@@ -58,5 +58,5 @@ model Event {
   creatorId Int
   area      Area      @relation(fields: [areaId], references: [id])
   areaId    Int
-  deletedAt DateTime
+  canceledAt DateTime?
 }
