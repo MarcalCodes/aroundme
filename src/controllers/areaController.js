@@ -1,4 +1,5 @@
 import * as Areas from "../models/areas.js"
+import * as Users from "../models/users.js"
 
 const getAreas = async () => {
     return Areas.all()
@@ -18,8 +19,14 @@ const createArea = async (data, res) => {
     res.status(201).end();
 }
 
+const getAllAreasOfUser = async (id, res) => {
+    const users = await Users.getUsersByAreaSubscription(id)
+    res.json(users)
+}
+
 export {
     getAreas,
     getArea,
     createArea,
+    getAllAreasOfUser,
 }

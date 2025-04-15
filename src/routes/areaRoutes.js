@@ -30,8 +30,8 @@ router.post('/', async (req, res) => {
  *
  * Get all the users subscribed to this area
  */
-router.get('/:id/area', async (req, res) => {
-    return // TODO Ingrid
+router.get('/:id/users', async (req, res) => {
+   await areaController.getAllAreasOfUser(req.params.id, res)
 })
 
 /**
@@ -39,7 +39,7 @@ router.get('/:id/area', async (req, res) => {
  *
  * Get all the events happening to this area
  */
-router.get('/:id/area', async (req, res) => {
+router.get('/:id/events', async (req, res) => {
     return // TODO Ingrid
 })
 
