@@ -20,12 +20,12 @@ const remove = async (id) =>
                        FROM User
                        WHERE id = ${id};`
 
-const get = (id) =>
+const get = async (id) =>
     prisma.$queryRaw`SELECT *
                      FROM User
                      WHERE id = ${id};`
 
-const all = () =>
+const all = async () =>
     prisma.$queryRaw`SELECT *
                      FROM User;`
 
