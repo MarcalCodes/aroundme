@@ -19,7 +19,7 @@ model User {
   email     String   @unique
   name      String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime?
 
   Event        Event[]
   Subscription Subscription[]
@@ -50,7 +50,7 @@ model Subscription {
 model Event {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime?
   name      String
   startsAt  DateTime
   endsAt    DateTime
