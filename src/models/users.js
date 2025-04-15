@@ -29,6 +29,12 @@ const all = async () =>
     prisma.$queryRaw`SELECT *
                      FROM User;`
 
+const getUsersByAreaSubscription = async (areaId) =>
+    prisma.$queryRaw`SELECT u.*
+                     FROM Subscription as s,
+                          User as u
+                     WHERE s.areaId = ${areaId}
+                       AND s.userId = u.id;` // joining Subscription and User tables on Subscription::userId and User::id fields
 
 export {
     all,
@@ -36,4 +42,5 @@ export {
     insert,
     update,
     remove,
+    getUsersByAreaSubscription
 };
