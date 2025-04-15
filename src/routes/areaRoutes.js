@@ -1,5 +1,5 @@
 import express from 'express'
-import * as userController from "../controllers/userController.js"
+import * as areaController from "../controllers/areaController.js";
 
 const router = express.Router();
 
@@ -7,21 +7,22 @@ const router = express.Router();
  * GET /area
  */
 router.get('/', async (req, res) => {
-    return // TODO Ingrid
+    const areas = await areaController.getAreas()
+    res.json(areas)
 })
 
 /**
  * GET /area/:id
  */
 router.get('/:id', async (req, res) => {
-    return // TODO Ingrid
+    await areaController.getArea(req.params.id, res)
 })
 
 /**
  * POST /area
  */
 router.post('/', async (req, res) => {
-    return // TODO Ingrid
+    await areaController.createArea(req.body, res)
 })
 
 /**

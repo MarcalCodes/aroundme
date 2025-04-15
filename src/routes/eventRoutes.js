@@ -1,4 +1,5 @@
 import express from 'express'
+import * as eventController from "../controllers/eventController.js";
 
 const router = express.Router();
 
@@ -8,7 +9,7 @@ const router = express.Router();
  * Get the details of a particular event
  */
 router.get('/:id', async (req, res) => {
-    return // TODO Ingrid
+    await eventController.getEvent(req.params.id, res)
 })
 
 /**
@@ -17,7 +18,7 @@ router.get('/:id', async (req, res) => {
  * Create a new event
  */
 router.post('/', async (req, res) => {
-    return // TODO Ingrid
+    await eventController.createEvent(req.body, res)
 })
 
 /**
@@ -26,7 +27,7 @@ router.post('/', async (req, res) => {
  * Update an existing event
  */
 router.put('/:id', async (req, res) => {
-    return // TODO Ingrid
+    await eventController.updateEvent(req.params.id, req.body, res)
 })
 
 /**
@@ -35,7 +36,7 @@ router.put('/:id', async (req, res) => {
  * Cancel an event - will do a "soft delete" in DB
  */
 router.delete('/:id', async (req, res) => {
-    return // TODO Ingrid
+    await eventController.cancelEvent(req.params.id, res)
 })
 
 export default router;

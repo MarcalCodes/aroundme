@@ -1,0 +1,26 @@
+import prisma from "./prisma.js"
+
+/**
+ * Using Raw queries from Prisma.
+ * See https://www.prisma.io/docs/orm/prisma-client/using-raw-sql/raw-queries
+ */
+const insert = async (postcode) =>
+    prisma.$executeRaw`INSERT INTO Area (postcode)
+                       VALUES (${postcode});`
+
+const get = async (id) =>
+    prisma.$queryRaw`SELECT *
+                     FROM Area
+                     WHERE id = ${id};`
+
+const all = async () =>
+    prisma.$queryRaw`SELECT *
+                     FROM Area;`
+
+
+export {
+    all,
+    get,
+    insert,
+};
+
