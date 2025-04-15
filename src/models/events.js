@@ -35,10 +35,17 @@ const getEventsByUser = async (userId) =>
                      FROM Event
                      WHERE creatorId = ${userId};`
 
+const getEventsByArea = async  (areaId) =>
+    prisma.$queryRaw `SELECT *
+                      FROM Event
+                      WHERE areaId = ${areaId};`
+
+
 export {
     get,
     insert,
     update,
     softDelete,
     getEventsByUser,
+    getEventsByArea,
 };

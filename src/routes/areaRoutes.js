@@ -4,7 +4,7 @@ import * as areaController from "../controllers/areaController.js";
 const router = express.Router();
 
 /**
- * GET /area
+ * GET /areas
  */
 router.get('/', async (req, res) => {
     const areas = await areaController.getAreas()
@@ -12,35 +12,35 @@ router.get('/', async (req, res) => {
 })
 
 /**
- * GET /area/:id
+ * GET /areas/:id
  */
 router.get('/:id', async (req, res) => {
     await areaController.getArea(req.params.id, res)
 })
 
 /**
- * POST /area
+ * POST /areas
  */
 router.post('/', async (req, res) => {
     await areaController.createArea(req.body, res)
 })
 
 /**
- * GET /area/:id/users
+ * GET /areas/:id/users
  *
  * Get all the users subscribed to this area
  */
 router.get('/:id/users', async (req, res) => {
-   await areaController.getAllAreasOfUser(req.params.id, res)
+   await areaController.getAllUsersOfArea(req.params.id, res)
 })
 
 /**
- * GET /area/:id/events
+ * GET /areas/:id/events
  *
  * Get all the events happening to this area
  */
 router.get('/:id/events', async (req, res) => {
-    return // TODO Ingrid
+    await areaController.getAllEventsOfArea(req.params.id, res)
 })
 
 

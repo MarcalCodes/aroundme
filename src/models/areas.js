@@ -25,6 +25,7 @@ const getAllAreasOfUser = async (userId) =>
                        AND s.areaId = a.id;` // joining Subscription and Area tables on Subscription::areaId and Area:id fields
 
 
+
 export {
     all,
     get,

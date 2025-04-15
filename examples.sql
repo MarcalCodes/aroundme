@@ -23,3 +23,10 @@ WHERE
     s.areaId = ${areaId}
   AND s.userId = u.id -- joining Subscription and User tables on Subscription::userId and User::id fields
 ;
+
+-- Get all the Events happening to this area
+
+SELECT *
+FROM Event
+WHERE areaId = ${areaId};
+
