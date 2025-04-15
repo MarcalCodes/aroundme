@@ -6,12 +6,13 @@ import prisma from "./prisma.js"
  */
 const insert = async (email, name) =>
     prisma.$executeRaw`INSERT INTO User (email, name)
-                       VALUES (${email},);`
+                       VALUES (${email}, ${name});`
 
 const update = async (id, email, name) =>
     prisma.$executeRaw`UPDATE User
                        SET email = ${email},
-                           name  = ${name}
+                           name  = ${name},
+                           updatedAt = ${new Date()}
                        WHERE id = ${id};`
 
 const remove = async (id) =>
