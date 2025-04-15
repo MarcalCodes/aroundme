@@ -15,7 +15,47 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  name  String
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Event        Event[]
+  Subscription Subscription[]
+}
+
+model Area {
+  id         Int      @id @default(autoincrement())
+  postalCode String   @unique
+  createdAt  DateTime @default(now())
+
+  Event        Event[]
+  Subscription Subscription[]
+}
+
+model Subscription {
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  area      Area     @relation(fields: [areaId], references: [id])
+  areaId    Int
+
+  // Composite Primary key
+  // A User can't subscribe twice to the same area
+  // See https://www.prisma.io/docs/orm/prisma-client/special-fields-and-types/working-with-composite-ids-and-constraints
+  @@id([userId, areaId])
+}
+
+model Event {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  startsAt  DateTime
+  endsAt    DateTime
+  creator   User     @relation(fields: [creatorId], references: [id])
+  creatorId Int
+  area      Area     @relation(fields: [areaId], references: [id])
+  areaId    Int
 }

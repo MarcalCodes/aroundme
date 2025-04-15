@@ -4,21 +4,26 @@ const getUsers = async () => {
     return Users.all()
 }
 
-const createUser = async (data, response) => {
+const getUser = async (id) => {
+    return // TODO Ingrid
+}
+
+const createUser = async (data, res) => {
     await Users.insert(data.email, data.name)
-    response.status(201).end();
+    res.status(201).end();
 }
 
-const updateUser = (req, response) => {
-    return
+const updateUser = (id, data, res) => {
+    return // TODO Ingrid
 }
 
-const deleteUser = (req, response) => {
-    return
+const deleteUser = (id, res) => {
+    return // TODO Ingrid
 }
 
 export {
     getUsers,
+    getUser,
     createUser,
     updateUser,
     deleteUser
