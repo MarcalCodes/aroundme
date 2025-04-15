@@ -47,7 +47,7 @@ router.delete('/:id', async (req, res) => {
  * Get all area the user is subscribed to
  */
 router.get('/:id/areas', async (req, res) => {
-    return // TODO Ingrid
+    await userController.allAreasOfUser(req.params.id, res)
 })
 
 /**
