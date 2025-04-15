@@ -4,8 +4,13 @@ const getUsers = async () => {
     return Users.all()
 }
 
-const getUser = async (id) => {
-    return // TODO Ingrid
+const getUser = async (id, res) => {
+    const user = await Users.get(id)
+    if (user) {
+        res.json(user)
+    } else {
+        res.status(404).end()
+    }
 }
 
 const createUser = async (data, res) => {
@@ -13,12 +18,14 @@ const createUser = async (data, res) => {
     res.status(201).end();
 }
 
-const updateUser = (id, data, res) => {
-    return // TODO Ingrid
+const updateUser = async (id, data, res) => {
+    await Users.update(id, data.email, data.name)
+    res.status(200).end();
 }
 
-const deleteUser = (id, res) => {
-    return // TODO Ingrid
+const deleteUser = async (id, res) => {
+    await Users.remove(id)
+    res.status(200).end();
 }
 
 export {

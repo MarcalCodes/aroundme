@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
  *
  * Create a new event
  */
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     return // TODO Ingrid
 })
 
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
  *
  * Update an existing event
  */
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
     return // TODO Ingrid
 })
 
@@ -34,7 +34,7 @@ router.put('/:id', (req, res) => {
  *
  * Cancel an event - will do a "soft delete" in DB
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
     return // TODO Ingrid
 })
 
