@@ -1,4 +1,5 @@
 import * as Users from "../models/users.js"
+import * as Areas from "../models/areas.js"
 
 const getUsers = async () => {
     return Users.all()
@@ -28,10 +29,16 @@ const deleteUser = async (id, res) => {
     res.status(200).end();
 }
 
+const allAreasOfUser = async (id, res) => {
+    const areas = await Areas.getAllAreasOfUser(id)
+    res.json(areas)
+}
+
 export {
     getUsers,
     getUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    allAreasOfUser,
 }
