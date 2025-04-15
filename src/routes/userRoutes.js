@@ -56,7 +56,7 @@ router.get('/:id/areas', async (req, res) => {
  * Get all events created by the user
  */
 router.get('/:id/events', async (req, res) => {
-    return // TODO Ingrid
+    await userController.allEventsOfUsers(req.params.id, res)
 })
 
 

@@ -1,5 +1,6 @@
 import * as Users from "../models/users.js"
 import * as Areas from "../models/areas.js"
+import * as Events from "../models/events.js"
 
 const getUsers = async () => {
     return Users.all()
@@ -34,6 +35,11 @@ const allAreasOfUser = async (id, res) => {
     res.json(areas)
 }
 
+const allEventsOfUsers = async (id, res) => {
+    const events = await Events.getEventsByUser(id)
+    res.json(events)
+}
+
 export {
     getUsers,
     getUser,
@@ -41,4 +47,6 @@ export {
     updateUser,
     deleteUser,
     allAreasOfUser,
+    allEventsOfUsers
+
 }

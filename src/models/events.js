@@ -11,8 +11,8 @@ const insert = async (name, startsAt, endsAt, creatorId, areaId) =>
 const update = async (id, name, startsAt, endsAt, creatorId, areaId) =>
     prisma.$executeRaw`UPDATE Event
                        SET name  = ${name},
-                           startsAt = ${startsAt},
-                           endsAt = ${endsAt},
+                           startsAt = ${new Date(startsAt)},
+                           endsAt = ${new Date(endsAt)},
                            creatorId = ${creatorId},
                            areaId = ${areaId},
                            updatedAt = ${new Date()}
@@ -20,7 +20,7 @@ const update = async (id, name, startsAt, endsAt, creatorId, areaId) =>
 
 const softDelete = async (id) =>
     prisma.$executeRaw`UPDATE Event
-                       SET deletedAt = ${new Date()},
+                       SET canceledAt = ${new Date()},
                            updatedAt = ${new Date()}
                        WHERE id = ${id};`
 
@@ -29,9 +29,16 @@ const get = async(id) =>
                      FROM Event
                      WHERE id = ${id};`
 
+
+const getEventsByUser = async (userId) =>
+    prisma.$queryRaw`SELECT *
+                     FROM Event
+                     WHERE creatorId = ${userId};`
+
 export {
     get,
     insert,
     update,
     softDelete,
+    getEventsByUser,
 };
