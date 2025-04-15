@@ -1,11 +1,11 @@
-# For this demo, we'll create the following scenaria:
+# For this demo, we'll create the following scenario:
 #
 #  - Step 1: 3 Areas: 2400, 2401, 2402
 #  - Step 2: 2 Users: Abba and Elsa
 #  - Step 3: 3 Subscriptions for the user Elsa. 1 subscription to each Area
 #  - Step 4: 3 Events, all created by the user Abba.
 #     - 1 event will be in area 2400
-#     - the 2 other other one will be in area 2401
+#     - the 2 other one will be in area 2401
 #     - no events happening in area 2402
 #
 
@@ -96,7 +96,7 @@ Content-Type: application/json
   "areaId": 2
 }
 
-### Step 4.3 - Creating Event 3 - Created by Abba in Area 2401 - will have ID 3
+### Step 4.3 - Creating Event 3 - Created by Abba in Area 2402 - will have ID 3
 POST http://localhost:3000/events
 Content-Type: application/json
 
@@ -128,7 +128,7 @@ Content-Type: application/json
 GET http://localhost:3000/areas/1/users
 Content-Type: application/json
 
-### Step 8.1 - Advanced APIs - Get all the events happening in a givent Area - Area 2400 - Should be 1 events
+### Step 8.1 - Advanced APIs - Get all the events happening in a given Area - Area 2400 - Should be 1 events
 GET http://localhost:3000/areas/1/events
 Content-Type: application/json
 
@@ -168,6 +168,6 @@ Content-Type: application/json
 DELETE http://localhost:3000/events/1
 Content-Type: application/json
 
-### Extra examples 2.3 - Soft-Deletion of an Event - After - Try to get the details of the deleted event - We should receive a 404 Not Found
+### Extra examples 2.3 - Soft-Deletion of an Event - After - The `canceledAt` field is set to a Date - The event has been canceled
 GET http://localhost:3000/events/1
 Content-Type: application/json
